@@ -1,10 +1,10 @@
-package pesquisa.abb;
+package ordenacao.heap;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        // Arquivos de dados (os mesmos 12 arquivos)
+        // Arquivos de dados
         String[] arquivosDados = {
                 "Reserva1000alea.txt", "Reserva1000inv.txt", "Reserva1000ord.txt",
                 "Reserva5000alea.txt", "Reserva5000inv.txt", "Reserva5000ord.txt",
@@ -12,10 +12,8 @@ public class Main {
                 "Reserva50000alea.txt", "Reserva50000inv.txt", "Reserva50000ord.txt"
         };
 
-        String arquivoNomes = "nome.txt";
-
-        // Instancia o processador específico para Árvore Binária de Busca
-        ProcessadorExperimentoABB processador = new ProcessadorExperimentoABB(arquivosDados, arquivoNomes);
+        // Instancia o processador de Heap Sort
+        ProcessadorExperimentoHeap processador = new ProcessadorExperimentoHeap(arquivosDados);
         processador.executar();
     }
 }
