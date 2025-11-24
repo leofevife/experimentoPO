@@ -1,13 +1,14 @@
 package pesquisa.abb;
 
-import java.util.ArrayList;
 import pesquisa.avl.Reserva;
+
+import java.util.ArrayList;
 
 public class ArvoreABB {
 
     private class No {
         String chave; // Nome do passageiro
-        ArrayList<Reserva> reservas; // Lista para tratar nomes duplicados (mesma chave)
+        ArrayList<Reserva> reservas;
         No esquerda, direita;
 
         No(Reserva reserva) {
@@ -27,60 +28,59 @@ public class ArvoreABB {
 
 
 
-    //inserir uma reserva na árvore
+
+    //Método iterativo em vez de recursivo pra resolver o problema de stackoverflow nas arvores desbalanceadas
     public void inserir(Reserva reserva) {
-        raiz = inserir(raiz, reserva);
-    }
-
-
-     //Método recursivo de inserção
-     //apenas descemos a árvore procurando o local correto (esq ou dir)
-
-    private No inserir(No no, Reserva reserva) {
-        // Se chegou numa folha nula, cria o novo nó aqui
-        if (no == null) {
-            return new No(reserva);
+        if (raiz == null) {
+            raiz = new No(reserva);
+            return;
         }
 
+        No atual = raiz;
         String chaveInserir = reserva.getNomePassageiro();
-        int cmp = chaveInserir.compareTo(no.chave);
 
-        if (cmp < 0) {
-            // Se for menor, vai para a esquerda
-            no.esquerda = inserir(no.esquerda, reserva);
-        } else if (cmp > 0) {
-            // Se for maior, vai para a direita
-            no.direita = inserir(no.direita, reserva);
-        } else {
-            // Se for igual (mesmo nome), adiciona à lista do nó existente
-            no.reservas.add(reserva);
+        while (true) {
+            int cmp = chaveInserir.compareTo(atual.chave); //comparação da chave
+
+            if (cmp < 0) {
+                // Ir para a esquerda
+                if (atual.esquerda == null) {
+                    atual.esquerda = new No(reserva);
+                    return;
+                }
+                atual = atual.esquerda;
+            } else if (cmp > 0) {
+                // Ir para a direita
+                if (atual.direita == null) {
+                    atual.direita = new No(reserva);
+                    return;
+                }
+                atual = atual.direita;
+            } else {
+                // Chaves iguais adiciona na lista do nó
+                atual.reservas.add(reserva);
+                return;
+            }
         }
-
-        // Retorna o próprio nó (sem balanceamento)
-        return no;
     }
 
 
 
-    //Busca por um nome na árvore
+    //Método iterativo de busca
     public ArrayList<Reserva> buscar(String nome) {
-        No resultado = buscar(raiz, nome);
-        return (resultado != null) ? resultado.reservas : null;
-    }
+        No atual = raiz;
 
-    private No buscar(No no, String nome) {
-        if (no == null) {
-            return null; // Não encontrou
+        while (atual != null) {
+            int cmp = nome.compareTo(atual.chave);
+
+            if (cmp < 0) {
+                atual = atual.esquerda;
+            } else if (cmp > 0) {
+                atual = atual.direita;
+            } else {
+                return atual.reservas; // Encontrou
+            }
         }
-
-        int cmp = nome.compareTo(no.chave);
-
-        if (cmp < 0) {
-            return buscar(no.esquerda, nome);
-        } else if (cmp > 0) {
-            return buscar(no.direita, nome);
-        } else {
-            return no; // Encontrou a chave
-        }
+        return null; // Não encontrou
     }
 }

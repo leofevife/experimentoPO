@@ -80,12 +80,14 @@ public class ProcessadorExperimentoAVL {
                 bw.write("NOME " + nome + ":\n");
                 if (resultados == null || resultados.isEmpty()) {
                     bw.write("NÃO TEM RESERVA\n");
+                    bw.write("\n");
                 } else {
                     for (Reserva r : resultados) {
                         bw.write("Reserva: " + r.getCodigoReserva() + " Voo: " + r.getCodigoVoo() + "\n");
                         bw.write("Data: " + r.getData() + " Assento: " + r.getAssento() + "\n");
                     }
                     bw.write("TOTAL: " + resultados.size() + " reservas\n");
+                    bw.write("\n");
                 }
             }
         }
