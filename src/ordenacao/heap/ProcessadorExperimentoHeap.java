@@ -37,7 +37,7 @@ public class ProcessadorExperimentoHeap {
                 //Carrega o arquivo em um ArrayList
                 ArrayList<Reserva> lista = carregarDados(arquivoDado);
 
-                // --- ORDENAÇÃO (HEAP SORT) ---
+                //ORDENAÇÃO
                 HeapSort.ordenar(lista);
 
                 // Gera o arquivo com o resultado da ordenação
@@ -78,7 +78,7 @@ public class ProcessadorExperimentoHeap {
                 bw.write("NOME " + r.getNomePassageiro() + ":\n");
                 bw.write("Reserva: " + r.getCodigoReserva() + " Voo: " + r.getCodigoVoo() + "\n");
                 bw.write("Data: " + r.getData() + " Assento: " + r.getAssento() + "\n");
-                bw.write("--------------------------------------------------\n");
+                bw.write("--------------------------------------------------\n"); //alteração que a professora pediu, para ter mais legibilidade nos arquivos gerados
             }
             bw.write("TOTAL REGISTROS: " + lista.size() + "\n");
         }
