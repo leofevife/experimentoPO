@@ -72,7 +72,7 @@ public class ProcessadorExperimentoAVL {
     private void pesquisarEGravar(ArvoreAVL arvore, String arquivoSaida) throws IOException {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoSaida))) {
             for (String nome : nomesBusca) {
-                // pros casos de gerar mais de uma reserva no msm nome(vai rolar colisão, igual no hashing)
+                // pros casos de gerar mais de uma reserva no msm nome(vai rolar """"colisão"""", igual no hashing, mas é pq um nome pode ter mais de uma reserva)
                 // aí o nó tem uma lista de reservas
 
                 ArrayList<Reserva> resultados = arvore.buscar(nome);
