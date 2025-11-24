@@ -12,7 +12,7 @@ public class ArvoreAVL {
 
         No(Reserva reserva) {
             this.chave = reserva.getNomePassageiro();
-            this.reservas = new ArrayList<>(); // a lista de reserva pros casos de colisões
+            this.reservas = new ArrayList<>(); // a lista de reserva pros casos de mais de uma reserva por nome
             this.reservas.add(reserva);
             this.altura = 1;
         }
