@@ -98,7 +98,7 @@ public class ArvoreAVL {
         }
     }
 
-    // --- Métodos Auxiliares AVL ---
+    //métodos Auxiliares AVL
 
     private int altura(No n) {
         return (n == null) ? 0 : n.altura;
