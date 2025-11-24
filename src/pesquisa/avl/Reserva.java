@@ -1,6 +1,6 @@
 package pesquisa.avl;
 
-//Classe para modelar os dados de uma Reserva de voo
+//Classe para modelar os dados da reserva de voo
 //Formato: reserva; nome; voo; data (dd/mm/aaaa); assento
 
 public class Reserva {
