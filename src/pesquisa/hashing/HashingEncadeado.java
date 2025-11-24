@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class HashingEncadeado {
 
 
-    //Classe interna que representa um nó na lista encadeada de cada bucket da tabela
+    //Classe interna que representa um nó na lista encadeada de cada bucket(indice) da tabela
 
     private class No {
         String chave; // Nome do passageiro
