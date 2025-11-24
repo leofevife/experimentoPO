@@ -46,10 +46,10 @@ public class ProcessadorExperimento {
         System.out.println("Processamento concluído. 12 arquivos de saída gerados.");
     }
 
-    /**
-     * Processa um único arquivo de dados (ex: "Reserva1000alea.txt").
-     * Esse método contém o loop de 5 execuções e a medição de tempo
-     */
+    
+    // Processa um único arquivo de dados (ex: "Reserva1000alea.txt")
+     //Esse método contém o loop de 5 execuções e a medição do tempo
+     
     private void processarArquivoUnico(String arquivoDado) {
         int numRegistros = getNumRegistros(arquivoDado);
         // Define o nome do arquivo de saída, ex: "Hash1000alea.txt"
@@ -58,7 +58,7 @@ public class ProcessadorExperimento {
         System.out.println("Processando arquivo: " + arquivoDado + " (" + numRegistros + " registros)...");
 
         try {
-            // 6) Inicia a contagem de tempo ANTES das 5 execuções
+            // Inicia a contagem de tempo ANTES das 5 execuções
             long inicioTotal = System.nanoTime();
 
             for (int i = 0; i < 5; i++) {
@@ -103,7 +103,7 @@ public class ProcessadorExperimento {
     }
 
 
-    //Pesquisa os nomes (this.nomesBusca) na tabela hash e grava os resultados.
+    //Pesquisa os nomes (this.nomesBusca) na tabela hash e grava os resultados
 
     private void pesquisarEGravar(HashingEncadeado tabelaHash, String arquivoSaida) throws IOException {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoSaida))) {
