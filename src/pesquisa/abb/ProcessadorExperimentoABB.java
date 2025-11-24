@@ -46,7 +46,7 @@ public class ProcessadorExperimentoABB {
             for (int i = 0; i < 5; i++) {
                 ArvoreABB arvore = new ArvoreABB();
 
-                // 1. Carrega dados na ABB
+                // Carrega dados na ABB
                 try (BufferedReader br = new BufferedReader(new FileReader(arquivoDado))) {
                     String linha;
                     while ((linha = br.readLine()) != null) {
@@ -56,7 +56,7 @@ public class ProcessadorExperimentoABB {
                     }
                 }
 
-                // 2. Pesquisa e Grava
+                // Pesquisa e Grava
                 pesquisarEGravar(arvore, arquivoSaida);
             }
 
