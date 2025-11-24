@@ -76,6 +76,7 @@ public class ArvoreAVL {
         return no;
     }
 
+    //simplificar a chamada por quem usa a classe
     public ArrayList<Reserva> buscar(String nome) {
         No resultado = buscar(raiz, nome);
         return (resultado != null) ? resultado.reservas : null;
